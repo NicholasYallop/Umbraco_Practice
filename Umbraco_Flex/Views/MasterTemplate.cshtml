@@ -1,0 +1,12 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+	Layout = null;
+}
+
+<h1>This is where the toolbar will be</h1>
+
+<h1>@Model.Value("title", fallback: Fallback.ToDefaultValue, defaultValue: new HtmlString("Nick's website"))</h1>
+
+@RenderBody()

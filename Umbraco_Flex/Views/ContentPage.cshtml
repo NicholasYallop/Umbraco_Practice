@@ -1,0 +1,15 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.ContentPage>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+	Layout = "MasterTemplate.cshtml";
+}
+
+<script src="/scripts/ContentSearchModel.js"></script>
+
+<div>
+    <input id="SearchText" placeholder="Search text"/>
+    <button onclick="getFilteredContent('@Umbraco.AssignedContentItem.Id')">Button</button>
+</div>
+
+<ul id="ResultsDisplay"></ul>

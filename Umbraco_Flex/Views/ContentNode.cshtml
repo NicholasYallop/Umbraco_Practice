@@ -1,0 +1,15 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.ContentNode>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+	Layout = "MasterTemplate.cshtml";
+}
+<div>
+    <body>@Model.Value("bodyText")</body>
+</div>
+
+<div>
+    <picture>
+        <img src=@Model.Picture.MediaUrl()?height=100&ampwidth=100/>
+    </picture>
+</div>

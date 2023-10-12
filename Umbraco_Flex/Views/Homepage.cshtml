@@ -1,0 +1,12 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.Homepage>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+	Layout = "MasterTemplate.cshtml";
+}
+
+<script src="ContentSearchModel.js"/>
+
+<h1>@Model.Value("title")</h1>
+<h2>@Model.Value("Subtitle")</h2>
+<footer>@Model.Value("Footer")</footer>
