@@ -26,10 +26,11 @@ function ProcessResponse(response) {
     ul.removeChild(ul.firstChild)
   }
 
-  for (var i = 0; i < result.length; i++) {
+  for (var i = result.length-1; i >= 0 ; i--) {
     let child = result[i];
 
     let div = document.createElement("div");
+    div.classList.add('resultelement');
 
     let img = new Image();
     img.src = child.imgUrl
@@ -37,14 +38,17 @@ function ProcessResponse(response) {
     img.width = 100;
     div.appendChild(img);
 
+    let textdiv = document.createElement("div");
+
     let h = document.createElement("h5");
     h.innerText = child.title;
-    div.appendChild(h);
+    textdiv.appendChild(h);
+    div.appendChild(textdiv);
 
     div.addEventListener('click', function () {
       location.href = child.url;
     });
 
     ul.appendChild(div);
-    }
+  }
 }

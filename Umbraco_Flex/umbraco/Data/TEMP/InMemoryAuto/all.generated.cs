@@ -5,8 +5,8 @@ using  Umbraco.Cms.Core.PublishedCache;
 using  Umbraco.Cms.Infrastructure.ModelsBuilder;
 using  Umbraco.Cms.Core;
 using  Umbraco.Extensions;
-[assembly:ModelsBuilderAssembly(IsInMemory = true, SourceHash = "aed8770d41074c852f7c32a0f324b17182f3145d")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.9")]
+[assembly:ModelsBuilderAssembly(IsInMemory = true, SourceHash = "be12e9f83f9f211041f4c39f3ef394282a61a5c2")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
 
 
 // FILE: models.generated.cs
@@ -92,7 +92,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 
 	/// <summary>Content Group</summary>
 	[PublishedModel("contentPage")]
-	public partial class ContentPage : PublishedContentModel
+	public partial class ContentPage : PublishedContentModel, ITitleBar
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -136,6 +136,22 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("searchText")]
 		public virtual string SearchText => this.Value<string>(_publishedValueFallback, "searchText");
+
+		///<summary>
+		/// Subtitle
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.2.0+173d8dc")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("subtitle")]
+		public virtual string Subtitle => global::Umbraco.Cms.Web.Common.PublishedModels.TitleBar.GetSubtitle(this, _publishedValueFallback);
+
+		///<summary>
+		/// Title
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.2.0+173d8dc")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("title")]
+		public virtual string Title => global::Umbraco.Cms.Web.Common.PublishedModels.TitleBar.GetTitle(this, _publishedValueFallback);
 	}
 
 	// Mixin Content Type with alias "titleBar"

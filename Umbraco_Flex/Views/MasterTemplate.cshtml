@@ -5,8 +5,21 @@
 	Layout = null;
 }
 
-<h1>This is where the toolbar will be</h1>
+<link rel="stylesheet" href="/css/main.css"/>
 
-<h1>@Model.Value("title", fallback: Fallback.ToDefaultValue, defaultValue: new HtmlString("Nick's website"))</h1>
+<div class="topnav">
+  <a class=@(Model.Url() == Model.Root().Url() ? "active" : "element") 
+    href=@Model.Root().Url()>Home</a>
+  <a class=@(Model.Url() != Model.Root().Url() ? "active" : "element") 
+    href=@(string.Format("{0}{1}", Model.Root().Url(), "content-group"))>Content</a>
+  <div class="logo">
+      <h2 class="mainlogo">
+        @(new HtmlString(Model.Value("title", fallback: Fallback.ToDefaultValue, defaultValue: "Nick's website")))
+      </h2>
+      <h5 class="sublogo">
+        @(new HtmlString(Model.Value("subtitle")?.ToString() ?? string.Empty))
+      </h5>
+  </div>
+</div>
 
 @RenderBody()

@@ -7,9 +7,14 @@
 
 <script src="/scripts/ContentSearchModel.js"></script>
 
+
 <div>
-    <input id="SearchText" placeholder="Search text"/>
-    <button onclick="getFilteredContent('@Umbraco.AssignedContentItem.Id')">Button</button>
+	<input class="filterbox" id="SearchText" placeholder="Search text" oninput="getFilteredContent('@Umbraco.AssignedContentItem.Id')" />
+	<script>
+		getFilteredContent('@Umbraco.AssignedContentItem.Id');
+	</script>
 </div>
 
-<ul id="ResultsDisplay"></ul>
+<div class="resultslist">
+	<ul id="ResultsDisplay"></ul>
+</div>
