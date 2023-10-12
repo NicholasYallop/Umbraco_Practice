@@ -33,9 +33,7 @@ function ProcessResponse(response) {
     div.classList.add('resultelement');
 
     let img = new Image();
-    img.src = child.imgUrl
-    img.height = 100;
-    img.width = 100;
+    img.src = child.imgUrl;
     div.appendChild(img);
 
     let textdiv = document.createElement("div");

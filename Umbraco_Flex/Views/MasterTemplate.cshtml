@@ -8,10 +8,13 @@
 <link rel="stylesheet" href="/css/main.css"/>
 
 <div class="topnav">
+
   <a class=@(Model.Url() == Model.Root().Url() ? "active" : "element") 
     href=@Model.Root().Url()>Home</a>
+
   <a class=@(Model.Url() != Model.Root().Url() ? "active" : "element") 
     href=@(string.Format("{0}{1}", Model.Root().Url(), "content-group"))>Content</a>
+
   <div class="logo">
       <h2 class="mainlogo">
         @(new HtmlString(Model.Value("title", fallback: Fallback.ToDefaultValue, defaultValue: "Nick's website")))
@@ -20,6 +23,9 @@
         @(new HtmlString(Model.Value("subtitle")?.ToString() ?? string.Empty))
       </h5>
   </div>
+
 </div>
 
 @RenderBody()
+
+<footer>@Model.Value("Footer", fallback: Fallback.ToDefaultValue, defaultValue: "Default footer")</footer>

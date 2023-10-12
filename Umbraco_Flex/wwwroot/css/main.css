@@ -3,9 +3,7 @@
   background-color: #333;
   overflow: hidden;
 }
-.topnav .element{
 
-}
 /* Style the links inside the navigation bar */
 .topnav .element {
   float: left;
@@ -57,13 +55,20 @@
   position: relative;
   left: -50%;
   padding: 0px 10px;
+  width: 150px;
 }
 
 .resultslist .resultelement img{
+  width: 150px;
+  height: 150px;
 }
 
 .resultslist .resultelement div{
   text-align: center;
+}
+
+.resultslist .resultelement div h5{
+  margin: 5px 10px 15px 10px;
 }
 
 /* LOGO */
@@ -82,4 +87,28 @@
 }
 
 .sublogo {
+}
+
+/* CONTENT NODE */
+.contentcontainer{
+  padding: 15px 0 5px 0;
+  float: left;
+}
+
+.contentimgcontainer{
+  margin: 0 10px 0 0;
+  float: left;
+}
+
+.contentimg {
+  width: 200px;
+  height: 200px;
+}
+
+.contenttitle{
+  float: none;
+}
+
+.contenttext{
+  float: none;
 }

@@ -41,13 +41,6 @@ namespace Umbraco_Flex.Controllers
 		}
 	}
 
-	public class SearchInput
-	{
-		public int PageId { get; set; }
-
-		public string SearchText { get; set; } = string.Empty;
-	}
-
 	public class ChildrenData
 	{
 		public int Id { get; set; }
