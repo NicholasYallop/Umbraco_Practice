@@ -1,5 +1,6 @@
 using Umbraco_Flex.Extensions;
 using Umbraco_Flex.Routing;
+using Umbraco_Flex.Routing.ContentFinders;
 
 namespace Umbraco_Flex
 {

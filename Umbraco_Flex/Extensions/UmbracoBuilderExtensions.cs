@@ -1,9 +1,11 @@
 ﻿using Umbraco.Cms.Core.Routing;
-using Umbraco_Flex.Routing;
+using Umbraco.Cms.Core.Strings;
+using Umbraco_Flex.Routing.ContentFinders;
+using Umbraco_Flex.Routing.SegmentProviders;
 
 namespace Umbraco_Flex.Extensions
 {
-	public static class UmbracoBuilderExtensions
+    public static class UmbracoBuilderExtensions
 	{
 		public static IUmbracoBuilder AddCustomContentFinders(this IUmbracoBuilder builder)
 		{
