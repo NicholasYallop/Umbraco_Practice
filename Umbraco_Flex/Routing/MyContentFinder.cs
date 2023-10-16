@@ -20,7 +20,8 @@ namespace Umbraco_Flex.Routing
 			if (!path.StartsWith(redirect)) { return Task.FromResult(false); }
 			if (!this._umbracoContextAccessor.TryGetUmbracoContext(out var umbracoContext)) { return Task.FromResult(false); };
 
-			var content = umbracoContext.Content.GetByRoute(path.Trim(redirect));
+			var newPath = path.Trim(redirect);
+			var content = umbracoContext.Content?.GetByRoute(newPath.Length>0 ? newPath : "/");
 			if (content is null) { return Task.FromResult(false); }
 
 			request.SetPublishedContent(content);

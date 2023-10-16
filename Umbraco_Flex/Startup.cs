@@ -1,4 +1,5 @@
 using Umbraco_Flex.Extensions;
+using Umbraco_Flex.Routing;
 
 namespace Umbraco_Flex
 {
@@ -37,6 +38,7 @@ namespace Umbraco_Flex
 					.AddDeliveryApi()
 					.AddComposers()
 					.AddCustomContentFinders()
+					.SetContentLastChanceFinder<MyFourOhFourFinder>()
 					.Build();
 		}
 
