@@ -1,3 +1,5 @@
+using Umbraco_Flex.Extensions;
+
 namespace Umbraco_Flex
 {
 	public class Startup
@@ -34,6 +36,7 @@ namespace Umbraco_Flex
 					.AddWebsite()
 					.AddDeliveryApi()
 					.AddComposers()
+					.AddCustomContentFinders()
 					.Build();
 		}
 

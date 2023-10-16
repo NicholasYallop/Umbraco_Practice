@@ -4,9 +4,9 @@
 @{
 	Layout = "MasterTemplate.cshtml";
 }
-
-<script src="/scripts/ContentSearchModel.js"></script>
-
+<head>
+	<script src="/scripts/ContentSearchModel.js"></script>
+</head>
 
 <div>
 	<input class="filterbox" id="SearchText" placeholder="Search text" oninput="getFilteredContent('@Umbraco.AssignedContentItem.Id')" />
