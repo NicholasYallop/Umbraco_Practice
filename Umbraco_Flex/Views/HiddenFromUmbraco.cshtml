@@ -1,0 +1,11 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentNodeViewModel>
+@{
+	Layout = "MasterTemplate.cshtml";
+}
+
+<p>the link to "@(Model.ContentName)" has been hijacked :)</p>
+<h1>the backoffice has no knowledge of this template</h1>
+<h5>There are @Model.NumberOfMs m's in this page's contentName</h5>
+<h5>The longest word in this page's contentName is @Model.LongestWordInName</h5>
+<h5>The value of a property this viewmodel doesn't have is: @(Model.Value<string>("foobar"))</h5>
+
