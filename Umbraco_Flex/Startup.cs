@@ -40,6 +40,7 @@ namespace Umbraco_Flex
 					.AddComposers()
 					.AddCustomContentFinders()
 					.SetContentLastChanceFinder<MyFourOhFourFinder>()
+					.ConfigureServices()
 					.Build();
 		}
 

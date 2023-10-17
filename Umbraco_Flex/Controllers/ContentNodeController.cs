@@ -4,6 +4,7 @@ using Umbraco.Cms.Core.Models.PublishedContent;
 using Umbraco.Cms.Core.Web;
 using Umbraco.Cms.Web.Common.Controllers;
 using Umbraco.Cms.Web.Common.PublishedModels;
+using Umbraco_Flex.ViewModels;
 
 namespace Umbraco_Flex.Controllers
 {
