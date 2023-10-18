@@ -1,23 +1,16 @@
 ﻿@using Umbraco_Flex.ViewModels;
-@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
 @{
-	Layout = "/Views/MasterTemplate.cshtml";
 }
-@*BVeore this is returned in the controller
-  GET FORM results
-  apply filters and return x results
-*@
-@model ContentGroupViewModel
 
-<h5>We have @(Model.HasSearched ? string.Empty : "not ")searched.</h5>
+@model IEnumerable<IPublishedContent>
 
-<div class="resultslist">
+<div class="resultslist" id="searchResults">
 	<ul>
-		@foreach (var content in Model.Content)
+		@foreach (var content in Model)
 		{
-			<partial name="ContentSearchResult" model="new ContentNodeViewModel(content, null)"/>
+			<partial name="ContentSearchResult" model="new ContentNodeViewModel(content, null)" />
 		}
 	</ul>
 </div>
+
+	

@@ -5,11 +5,11 @@ namespace Umbraco_Flex.ViewModels
 {
 	public class ContentGroupViewModel : ContentGroup
 	{
+		public int GroupId { get; set; }
+
 		public ContentGroupViewModel(IPublishedContent content, IPublishedValueFallback publishedValueFallback) : base(content, publishedValueFallback)
 		{
+			GroupId = content.Id;
 		}
-
-		public IEnumerable<IPublishedContent> Content { get; set; } = Enumerable.Empty<IPublishedContent>();
-		public bool HasSearched { get; set; }
 	}
 }

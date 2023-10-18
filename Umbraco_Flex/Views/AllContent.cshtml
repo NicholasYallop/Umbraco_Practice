@@ -1,8 +1,18 @@
 ﻿@using Umbraco.Cms.Web.Common.PublishedModels;
-@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@using Umbraco_Flex.ViewModels;
+@model AllContentViewModel
 @{
-	Layout = null;
+	Layout = "MasterTemplate.cshtml";
 }
 
-<h1>All content page</h1>
-<h5>this was meant to have been hijacked</h5>
+<head>
+	<script src='/Scripts/AllContentNodeSearch.js'></script>
+	<script>
+		window.onload = UpdateList;
+	</script>
+</head>
+
+<input class="filterbox" id='SearchText' placeholder="Search text" onchange="UpdateList()" />
+
+<div id="searchResults">
+</div>

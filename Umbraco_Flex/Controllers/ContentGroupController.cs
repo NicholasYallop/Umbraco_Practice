@@ -28,21 +28,17 @@ namespace Umbraco_Flex.Controllers
 
 		public IActionResult AllContent()
 		{
-			string query = HttpContext.Request.Query["searchString"];
+			AllContentViewModel vm = new(CurrentPage!, _publishedValueFallback);
 
-			ContentGroupViewModel vm = new(CurrentPage!, _publishedValueFallback)
-			{
-				HasSearched = _contentNodeService.TryGetContentNodes(query, out var content),
-				Content = content
-			};
-
-			return PartialView("/Views/Partials/ContentListingResults.cshtml", vm);
+			return View("/Views/AllContent.cshtml", vm);
 		}
 
 
 		public override IActionResult Index()
 		{
-			return base.Index();
+			ContentGroupViewModel vm = new(CurrentPage!, _publishedValueFallback);
+
+			return View("/Views/ContentPage.cshtml", vm);
 		}
 	}
 

@@ -6,6 +6,8 @@
 }
 <head>
   <link rel="stylesheet" href="/css/main.css"/>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ajax-unobtrusive/3.2.6/jquery.unobtrusive-ajax.min.js"></script>
 </head>
 
 <body>
@@ -14,8 +16,14 @@
 		<a class=@(Model.Url() == Model.Root().Url() ? "active" : "element")
 			 href=@Model.Root().Url()>Home</a>
 
-		<a class=@(Model.Url() != Model.Root().Url() ? "active" : "element")
-			 href=@(string.Format("{0}{1}", Model.Root().Url(), "content-group"))>Content</a>
+		<a class=@(Model.UrlSegment() == "blogs" ? "active" : "element")
+			 href=@(string.Format("{0}{1}", Model.Root().Url(), "blogs"))>Blogs</a>
+
+		<a class=@(Model.UrlSegment() == "news" ? "active" : "element")
+			 href=@(string.Format("{0}{1}", Model.Root().Url(), "news"))>News</a>
+
+		<a class=@(Model.UrlSegment() == "all-content" ? "active" : "element")
+			 href=@(string.Format("{0}{1}", Model.Root().Url(), "all-content?searchString=a"))>All	Content</a>
 
 		<div class="logo">
 			<h2 class="mainlogo">
