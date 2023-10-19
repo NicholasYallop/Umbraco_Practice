@@ -7,9 +7,12 @@
 }
 
 <div class="contentcontainer">
+  @*
 	<div class="contentimgcontainer">
 		<img class="contentimg" src=@(Model.Picture.MediaUrl())>
 	</div>
 	<h3 class="contenttitle">@Model.ContentName</h3>
 	<p class="contenttext">@Model.BodyText</p>
+	*@
+	@await Html.GetBlockGridHtmlAsync(Model.ContentGrid) 
 </div>

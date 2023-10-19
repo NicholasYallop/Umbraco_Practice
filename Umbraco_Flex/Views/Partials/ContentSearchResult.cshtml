@@ -1,15 +1,17 @@
-﻿@using Umbraco_Flex.ViewModels;
-@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@using Umbraco.Cms.Core.Models;
+@using Umbraco_Flex.ViewModels;
 @model ContentNodeViewModel
+@{
+  var contentnodelayout = Model.ContentGrid?.FirstOrDefault(element => element.Content is ContentNodeLayout);
+  var picturearea = contentnodelayout?.Areas.FirstOrDefault(area => area.Alias == "picture");
+  var contentnodepicture = picturearea?.FirstOrDefault(item => item.Content is ContentNodePicture)?.Content as ContentNodePicture;
+}
+
 <div class="resultelement" onclick="location.href = '@Model.Url()';">
   <div>
     <h5>@Model.Parent?.Name</h5>
   </div>
-  <img src="@Model.Picture?.MediaUrl()"/>
+  <img src="@(contentnodepicture?.Image?.MediaUrl())"/>
   <div>
     <h5>@Model.ContentName</h5>
   </div>

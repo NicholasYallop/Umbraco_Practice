@@ -9,7 +9,7 @@ namespace Umbraco_Flex.ViewModels
         {
         }
 
-        public int NumberOfMs => ContentName?.Count(ch => ch == 'M') ?? 0;
+        public int NumberOfMs => ContentName?.Count(ch => ch == 'M' || ch=='m') ?? 0;
 
         public string LongestWordInName => ContentName?.Split(" ").MaxBy(word => word.Length) ?? string.Empty;
     }

@@ -26,14 +26,14 @@ namespace Umbraco_Flex.Controllers
 
 		public IActionResult FilteredContentNodes(string search)
 		{
-			_contentNodeService.TryGetContentNodes(search, out var nodes);
+			if (!_contentNodeService.TryGetContentNodes(search, out var nodes)) return View();
 
 			return PartialView("/Views/Partials/ContentListingResults.cshtml", nodes);
 		}
 		
 		public IActionResult FilteredChildrenContentNodes(string search, int groupId)
 		{
-			_contentNodeService.TryGetChildContentNodes(search, groupId, out var nodes);
+			if (!_contentNodeService.TryGetChildContentNodes(search, groupId, out var nodes)) return View();
 
 			return PartialView("/Views/Partials/ContentListingResults.cshtml", nodes);
 		}
