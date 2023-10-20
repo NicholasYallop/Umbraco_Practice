@@ -4,6 +4,14 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
+  <ItemGroup>
+    <Content Include="App_Plugins\MyCustomBlockViews\ContentNodeImage.html" />
+    <Content Include="App_Plugins\MyCustomBlockViews\ContentNodeLayout.html" />
+    <Content Include="App_Plugins\MyCustomBlockViews\ContentNodeText.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Plugins\MyCustomBlockViews\ContentNodeTitle.html" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.CodeAnalysis" Version="4.7.0" />
@@ -17,7 +25,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="App_Plugins\MyCustomBlockViews\" />
     <Folder Include="Composers\" />
   </ItemGroup>
 
@@ -31,5 +38,9 @@
     <RazorCompileOnBuild>false</RazorCompileOnBuild>
     <RazorCompileOnPublish>false</RazorCompileOnPublish>
   </PropertyGroup>
+
+	<PropertyGroup>
+		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+	</PropertyGroup>
   
 </Project>

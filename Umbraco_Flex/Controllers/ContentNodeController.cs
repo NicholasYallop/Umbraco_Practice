@@ -19,7 +19,12 @@ namespace Umbraco_Flex.Controllers
 
 		public IActionResult ContentNodeToHijack()
 		{
-			return View("/Views/HiddenFromUmbraco.cshtml", new ContentNodeViewModel(CurrentPage, null));
+			if (CurrentPage is null)
+			{
+				return CurrentTemplate(CurrentPage);
+			}
+
+			return View("/Views/HiddenFromUmbraco.cshtml", new ContentNodeViewModel(CurrentPage, PublishedValueFallback.TryGetValue(CurrentPage, "content"));
 		}
 
 		public override IActionResult Index()
