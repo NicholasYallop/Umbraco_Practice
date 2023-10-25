@@ -5,5 +5,10 @@
 	Layout = "MasterTemplate.cshtml";
 }
 
-<h1>@Model.Title</h1>
-<h2>@Model.Subtitle</h2>
+<div id="homepagemain">
+	<h1>@Model.Title</h1>
+	<h2>@Model.Subtitle</h2>
+	<div class="heroimagecontainer">
+		<img src="@(Model.Hero?.MediaUrl())"/>
+	</div>
+</div>

@@ -11,28 +11,31 @@
 
 
 <head>
-@if (noIndex)
-{
-	<meta name="robots" content="noindex, nofollow">
-  <meta name="googlebot" content="noindex, nofollow">
-} 
-	<link rel="stylesheet" href="/css/main.css"/>
+	@if (noIndex)
+	{
+		<meta name="robots" content="noindex, nofollow">
+		<meta name="googlebot" content="noindex, nofollow">
+	}
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,500;1,300&display=swap" rel="stylesheet">
+
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ajax-unobtrusive/3.2.6/jquery.unobtrusive-ajax.min.js"></script>
+
+	<link rel="stylesheet" href="/css/main.css" />
+
 </head>
 
-<body>
+<body class="bodygrid">
 	<div class="topnav">
-
 		<a class=@(Model.Url() == Model.Root().Url() ? "active" : "element")
 			 href=@Model.Root().Url()>Home</a>
-
 		<a class=@(Model.UrlSegment() == "blogs" ? "active" : "element")
 			 href=@(string.Format("{0}{1}", Model.Root().Url(), "blogs"))>Blogs</a>
-
 		<a class=@(Model.UrlSegment() == "news" ? "active" : "element")
 			 href=@(string.Format("{0}{1}", Model.Root().Url(), "news"))>News</a>
-
 		<a class=@(Model.UrlSegment() == "all-content" ? "active" : "element")
 			 href=@(string.Format("{0}{1}", Model.Root().Url(), "all-content?searchString=a"))>All	Content</a>
 
@@ -46,8 +49,12 @@
 		</div>
 
 	</div>
+	
+	<div id="maindiv">
+		@RenderBody()
+	</div>
 
-	@RenderBody()
-
-	<footer>@Model.Value("Footer", fallback: Fallback.ToDefaultValue, defaultValue: "Default footer")</footer>
+	<footer class="footer">
+		<p>@Model.Value("Footer", fallback: Fallback.ToDefaultValue, defaultValue: "Default footer")</p>
+	</footer>
 </body>

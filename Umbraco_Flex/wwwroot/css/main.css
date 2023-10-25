@@ -1,12 +1,27 @@
-/* Add a black background color to the top navigation */
+/* BODY GRID */
+.bodygrid{
+  display: grid;
+  grid: min-content auto 40px / 120px auto 40px;
+  height: 100%;
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  background: #494f4a;
+  font-family: 'Roboto';
+  font-kerning: none;
+}
+
+/* NAV BAR */
 .topnav {
-  background-color: #333;
+  background-color: #111211;
   overflow: hidden;
   top: 0;
   width: 100%;
+  grid-area: 1/1 / 2/-1;
+  display: grid;
+  grid: auto-flow max-content / repeat(4, max-content) 1fr max-content;
 }
 
-/* Style the links inside the navigation bar */
 .topnav .element {
   float: left;
   color: #f2f2f2;
@@ -14,23 +29,108 @@
   padding: 24px 18px;
   text-decoration: none;
   font-size: 17px;
+  transition: 0.25s;
 }
 
-/* Change the color of links on hover */
+.topnav .element:hover{
+  background-color: rgba(137, 240, 154, 0.5);
+}
+
 .topnav .element a:hover {
-  background-color: #ddd;
+  background-color: #89f09a;
   color: black;
 }
 
-/* Add a color to the active/current link */
 .topnav .active {
   float: left;
   text-align: center;
   padding: 24px 18px;
   text-decoration: none;
   font-size: 17px;
-  background-color: #04AA6D;
-  color: white;
+  background-color: #89f09a;
+  color: #111211;
+}
+
+/* LOGO */
+.topnav .logo {
+  grid-column: -2/-1;
+  text-decoration: none;
+  text-align: center;
+  font-size: 17px;
+  margin: 0px;
+  padding: 0px 20px;
+  color: #89f09a;
+  line-height: 0;
+}
+
+.mainlogo {
+}
+
+.sublogo {
+}
+
+/* MAIN DIV */
+#maindiv{
+  grid-area: 2/2 / 3/3;
+}
+
+/* FOOTER */
+.footer{
+  grid-area: -2/1 / -1/-1;
+  background: #111211;
+  width: 100%;
+  text-align: center;
+}
+
+.footer > p{
+  color: #f2f2f2;
+}
+
+/* HOMEPAGE */
+#homepagemain{
+  display: grid;
+  grid: max-content auto auto /  max-content max-content auto;
+  height: 100%;
+  margin-top: 35px;
+}
+
+#homepagemain h1, 
+#homepagemain h2{
+  color: #f2f2f2;
+  letter-spacing: 1px;
+}
+
+#homepagemain h1{
+  font-size: 64px;
+  grid-area: 1/1 / 2/2; 
+  padding: 0px;
+  margin: 0px;
+  justify-self: left;
+  align-self: end;
+}
+
+#homepagemain h2{
+  font-size: 16px;
+  grid-area: 1/2 / 2/3; 
+  padding: 0px;
+  margin: 10px 60px;
+  justify-self: left;
+  align-self: start;
+}
+
+#homepagemain .heroimagecontainer{
+  border-radius: 50px 50px;
+  grid-area: 2/1 / 3/4;
+  justify-self: center;
+  align-self: center;
+  margin: 40px 0 0 0;
+}
+
+#homepagemain .heroimagecontainer img{
+  height: 562px;
+  border-radius: 50px 50px;
+  width: 1000px;
+  opacity: 0.8;
 }
 
 /* FILTER BOX */
@@ -72,26 +172,6 @@
 .resultslist .resultelement div h5{
   margin: 5px 10px 15px 10px;
 }
-
-/* LOGO */
-.topnav .logo {
-  float: right;
-  text-decoration: none;
-  text-align: center;
-  font-size: 17px;
-  margin: 0px;
-  padding: 0px 20px;
-  color: #f2f2f2;
-  line-height: 0;
-}
-
-.mainlogo {
-}
-
-.sublogo {
-}
-
-
 
 /* CONTENT NODE */
 .contentcontainer{
