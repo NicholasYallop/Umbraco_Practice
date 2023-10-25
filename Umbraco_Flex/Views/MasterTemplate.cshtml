@@ -30,14 +30,34 @@
 
 <body class="bodygrid">
 	<div class="topnav">
-		<a class=@(Model.Url() == Model.Root().Url() ? "active" : "element")
-			 href=@Model.Root().Url()>Home</a>
-		<a class=@(Model.UrlSegment() == "blogs" ? "active" : "element")
-			 href=@(string.Format("{0}{1}", Model.Root().Url(), "blogs"))>Blogs</a>
-		<a class=@(Model.UrlSegment() == "news" ? "active" : "element")
-			 href=@(string.Format("{0}{1}", Model.Root().Url(), "news"))>News</a>
-		<a class=@(Model.UrlSegment() == "all-content" ? "active" : "element")
-			 href=@(string.Format("{0}{1}", Model.Root().Url(), "all-content?searchString=a"))>All	Content</a>
+		<div class="dropdown">
+			<a class=@(Model.Url() == Model.Root().Url() ? "active" : "element")
+				 href=@Model.Root().Url()>Home</a>
+		</div>
+		<div class="dropdown">
+			<a class=@(Model.UrlSegment() == "blogs" ? "active" : "element")
+				 href=@(string.Format("{0}{1}", Model.Root().Url(), "blogs"))>Blogs</a>
+			<div class="dropdown-content">
+				<a href="#">link 1</a>
+				<a href="#">link 2</a>
+			</div>
+		</div>
+		<div class="dropdown">
+			<a class=@(Model.UrlSegment() == "news" ? "active" : "element")
+				 href=@(string.Format("{0}{1}", Model.Root().Url(), "news"))>News</a>
+			<div class="dropdown-content">
+				<a href="#">link 1</a>
+				<a href="#">link 2</a>
+			</div>
+		</div>
+		<div class="dropdown">
+			<a class=@(Model.UrlSegment() == "all-content" ? "active" : "element")
+				 href=@(string.Format("{0}{1}", Model.Root().Url(), "all-content?searchString=a"))>All	Content</a>
+			<div class="dropdown-content">
+				<a href="#">link 1</a>
+				<a href="#">link 2</a>
+			</div>
+		</div>
 
 		<div class="logo">
 			<h2 class="mainlogo">
