@@ -30,32 +30,39 @@
 
 <body class="bodygrid">
 	<div class="topnav">
-		<div class="dropdown">
-			<a class=@(Model.Url() == Model.Root().Url() ? "active" : "element")
+		<script src="~/scripts/PopulateDropdowns.js"></script>
+		<div class="@(Model.Url() == Model.Root().Url()? "dropdown elementcontainer active" : "dropdown elementcontainer")">
+			<a id="homeelement" class="element"
 				 href=@Model.Root().Url()>Home</a>
 		</div>
+
 		<div class="dropdown">
-			<a class=@(Model.UrlSegment() == "blogs" ? "active" : "element")
-				 href=@(string.Format("{0}{1}", Model.Root().Url(), "blogs"))>Blogs</a>
-			<div class="dropdown-content">
-				<a href="#">link 1</a>
-				<a href="#">link 2</a>
+			<div class="@(Model.UrlSegment() == "all-content" ? "elementcontainer active" : "elementcontainer")">
+			<a class="element"
+				href=@(string.Format("{0}{1}", Model.Root().Url(), "all-content?searchString=a"))>All	Content</a>
+				<img src="~/media/jerp2mxg/arrow.svg" class="navarrow" />
+			</div>
+			<div id="all_dropdown" class="dropdown-content">
 			</div>
 		</div>
+
 		<div class="dropdown">
-			<a class=@(Model.UrlSegment() == "news" ? "active" : "element")
+			<div class="@(Model.UrlSegment() == "blogs" ? "elementcontainer active" : "elementcontainer")">
+				<a class="element"
+					 href=@(string.Format("{0}{1}", Model.Root().Url(), "blogs"))>Blogs</a>
+				<img src="~/media/jerp2mxg/arrow.svg" class="navarrow" />
+			</div>
+			<div id="blogs_dropdown" class="dropdown-content">
+			</div>
+		</div>
+
+		<div class="dropdown">
+			<div class="@(Model.UrlSegment() == "news" ? "elementcontainer active" : "elementcontainer")">
+			<a class= "element"
 				 href=@(string.Format("{0}{1}", Model.Root().Url(), "news"))>News</a>
-			<div class="dropdown-content">
-				<a href="#">link 1</a>
-				<a href="#">link 2</a>
+				<img src="~/media/jerp2mxg/arrow.svg" class="navarrow" />
 			</div>
-		</div>
-		<div class="dropdown">
-			<a class=@(Model.UrlSegment() == "all-content" ? "active" : "element")
-				 href=@(string.Format("{0}{1}", Model.Root().Url(), "all-content?searchString=a"))>All	Content</a>
-			<div class="dropdown-content">
-				<a href="#">link 1</a>
-				<a href="#">link 2</a>
+			<div id="news_dropdown" class="dropdown-content">
 			</div>
 		</div>
 
@@ -69,7 +76,7 @@
 		</div>
 
 	</div>
-	
+
 	<div id="maindiv">
 		@RenderBody()
 	</div>

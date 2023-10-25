@@ -33,7 +33,22 @@ namespace Umbraco_Flex.Services
 			nodes = Array.Empty<ContentNode>();
 			return false;
 		}
-		
+		public bool TryGetContentNodes(out IEnumerable<ContentNode> nodes)
+		{
+			if(_examineManager.TryGetIndex("ExternalIndex", out IIndex? index))
+			{
+				nodes = index.Searcher.CreateQuery("content")
+					.NodeTypeAlias("contentNode")
+					.Execute()
+					.Select(x => int.TryParse(x.Id, out int id) ? _umbracoHelper.Content(id) as ContentNode : null)
+					.WhereNotNull();
+
+				return true;
+			}
+
+			nodes = Array.Empty<ContentNode>();
+			return false;
+		}
 		public bool TryGetChildContentNodes(string searchString, int parentId, out IEnumerable<ContentNode> nodes)
 		{
 			if(_examineManager.TryGetIndex("ExternalIndex", out IIndex? index))
@@ -44,6 +59,25 @@ namespace Umbraco_Flex.Services
 					.ParentId(parentId)
 					.Execute()
 					.Where(x => x.Values.TryGetValue("contentName", out var name) ? name?.ToLower().Contains(searchString?.ToLower() ?? string.Empty) ?? false : false)
+					.Select(x => int.TryParse(x.Id, out int id) ? _umbracoHelper.Content(id) as ContentNode : null)
+					.WhereNotNull();
+
+				return true;
+			}
+
+			nodes = Array.Empty<ContentNode>();
+			return false;
+		}
+
+		public bool TryGetChildContentNodes(int parentId, out IEnumerable<ContentNode> nodes)
+		{
+			if(_examineManager.TryGetIndex("ExternalIndex", out IIndex? index))
+			{
+				nodes = index.Searcher.CreateQuery("content")
+					.NodeTypeAlias("contentNode")
+					.And()
+					.ParentId(parentId)
+					.Execute()
 					.Select(x => int.TryParse(x.Id, out int id) ? _umbracoHelper.Content(id) as ContentNode : null)
 					.WhereNotNull();
 

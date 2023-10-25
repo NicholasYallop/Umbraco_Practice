@@ -37,6 +37,21 @@ namespace Umbraco_Flex.Controllers
 
 			return PartialView("/Views/Partials/ContentListingResults.cshtml", nodes);
 		}
+
+		public IActionResult ContentMenuItemsJson()
+		{
+			if (!_contentNodeService.TryGetContentNodes(out var nodes)) return View();
+
+			
+			return new JsonResult(nodes.Select(x => new { x.ContentName, Url=x.Url(), Parent=x.Parent?.Name}));
+		}
+		
+		public IActionResult ChildrenContentMenuItemsJson(int groupId)
+		{
+			if (!_contentNodeService.TryGetChildContentNodes(groupId, out var nodes)) return View();
+
+			return new JsonResult(nodes.Select(x => new { x.ContentName, Url=x.Url()}));
+		}
 	}
 
 	public class ChildrenData

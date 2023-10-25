@@ -1,7 +1,7 @@
 /* BODY GRID */
 .bodygrid{
   display: grid;
-  grid: min-content auto 40px / 120px auto 40px;
+  grid: min-content auto 40px / 120px auto 200px;
   height: 100%;
   width: 100%;
   margin: 0px;
@@ -9,6 +9,11 @@
   background: #494f4a;
   font-family: 'Roboto';
   font-kerning: none;
+  color: #f2f2f2;
+}
+
+h3{
+  font-weight: normal;
 }
 
 /* NAV BAR */
@@ -20,48 +25,71 @@
   grid-area: 1/1 / 2/-1;
 }
 
-.topnav div .element {
+.element {
   float: left;
   color: #f2f2f2;
   text-align: center;
-  padding: 24px 18px;
+  padding: 24px 10px 24px 18px;
   text-decoration: none;
   font-size: 17px;
   transition: 0.25s;
+  z-index: 1;
 }
 
-.topnav div .element:hover{
+#homeelement{
+  padding-right: 25px;
+}
+
+.active{
+  background-color: #89f09a;
+}
+
+.active .element{
+  background-color: #89f09a;
+  color: #111211;
+}
+
+.elementcontainer:hover{
   background-color: rgba(137, 240, 154, 0.5);
 }
 
-.topnav div .element a:hover {
-  color: black;
+.active:hover .element{
+  transition: 0s;
+  background-color: rgba(0,0,0,0);
 }
 
-.topnav div .active {
-  float: left;
-  text-align: center;
-  padding: 24px 18px;
-  text-decoration: none;
-  font-size: 17px;
-  background-color: #89f09a;
-  color: #111211;
+.elementcontainer:hover a {
+  color: black;
 }
 
 .dropdown{
   float: left;
   overflow: hidden;
-  width: max-content;
   display: inline-block;
+  z-index: 1;
+}
+
+.elementcontainer{
+  float:left;
+  display: inline-block;
+}
+
+.elementcontainer .navarrow{
+  float: left;
+  height: 100%;
+  width: 25px;
+  padding: 3px 0 0 0;
+  transition: 0.25s;
 }
 
 .dropdown .dropdown-content{
   position: absolute;
   z-index: 1;
   display: none;
-  background: white;
   top: 68.28px;
   background: #111211;
+  width: 200px;
+  border: 1px solid #89f09a;
 }
 
 .dropdown-content a{
@@ -69,22 +97,45 @@
   text-align: center;
   width: 100%;
   float: left;
+  text-decoration: none;
+  padding: 10px 0px;
+  border: 1px solid #89f09a;
+}
+
+.active .navarrow{
+  filter: invert(100%);
 }
 
 .dropdown:hover .dropdown-content{
   display: block;
 }
 
+.dropdown:hover .navarrow{
+  transform: rotate(90deg);
+  filter: invert(100%);
+}
+
+.dropdown:hover .active .navarrow{
+  filter: invert(100%);
+}
+
+.dropdown-content a:hover{
+  background: rgba(137, 240, 154, 0.5);
+}
+
 /* LOGO */
-.topnav .logo {
-  grid-column: -2/-1;
+.logo {
+  display: inline-block;
+  position: absolute;
   text-decoration: none;
   text-align: center;
   font-size: 17px;
   margin: 0px;
-  padding: 0px 20px;
   color: #89f09a;
   line-height: 0;
+  top: 0;
+  left: 400px;
+  right: 400px;
 }
 
 .mainlogo {
