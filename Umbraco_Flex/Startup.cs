@@ -1,3 +1,4 @@
+using Umbraco_Flex.Config;
 using Umbraco_Flex.Extensions;
 using Umbraco_Flex.Routing;
 using Umbraco_Flex.Routing.ContentFinders;
@@ -33,7 +34,10 @@ namespace Umbraco_Flex
 		/// </remarks>
 		public void ConfigureServices(IServiceCollection services)
 		{
+			var memexOptions = BindOptions<PortalConfigOptions>(_config, services, "Memex:Api");
+
 			services.AddUmbraco(_env, _config)
+					.ConfigureMemexPortalService(memexOptions)
 					.AddBackOffice()
 					.AddWebsite()
 					.AddDeliveryApi()
@@ -68,6 +72,19 @@ namespace Umbraco_Flex
 						u.UseBackOfficeEndpoints();
 						u.UseWebsiteEndpoints();
 					});
+		}
+
+		private static T BindOptions<T>(IConfiguration configuration, IServiceCollection serviceCollection, string sectionKey)
+						where T : class, new()
+		{
+			var configMapClass = new T();
+
+			configuration.GetSection(sectionKey).Bind(configMapClass);
+
+			// Allow the options to be accessed via DI.
+			serviceCollection.AddSingleton(configMapClass);
+
+			return configMapClass;
 		}
 	}
 }

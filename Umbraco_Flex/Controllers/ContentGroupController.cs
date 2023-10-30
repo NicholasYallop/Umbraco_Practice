@@ -4,12 +4,12 @@ using Umbraco.Cms.Core.Models.PublishedContent;
 using Umbraco.Cms.Core.Services;
 using Umbraco.Cms.Core.Web;
 using Umbraco.Cms.Web.Common.Controllers;
-using Umbraco_Flex.Services;
+using Umbraco_Flex.Services.Interface;
 using Umbraco_Flex.ViewModels;
 
 namespace Umbraco_Flex.Controllers
 {
-	public class ContentGroupController : RenderController
+    public class ContentGroupController : RenderController
 	{
 		private readonly IPublishedValueFallback _publishedValueFallback;
 		private readonly IContentNodeService _contentNodeService;

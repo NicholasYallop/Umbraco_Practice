@@ -11,11 +11,11 @@ using Umbraco.Cms.Infrastructure.Persistence;
 using Umbraco.Cms.Infrastructure.Persistence.Dtos;
 using Umbraco.Cms.Web.BackOffice.ModelBinders;
 using Umbraco.Cms.Web.Website.Controllers;
-using Umbraco_Flex.Services;
+using Umbraco_Flex.Services.Interface;
 
 namespace Umbraco_Flex.Controllers
 {
-	public class SearchController : SurfaceController
+    public class SearchController : SurfaceController
 	{
 		private readonly IContentNodeService _contentNodeService;
 
