@@ -5,12 +5,12 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
-    <Content Include="App_Plugins\MyCustomBlockViews\ContentNodeImage.html" />
-    <Content Include="App_Plugins\MyCustomBlockViews\ContentNodeLayout.html" />
-    <Content Include="App_Plugins\MyCustomBlockViews\ContentNodeText.html" />
+    <Content Include="App_Plugins\BlockViews\ContentNode\view\ContentNodeImage.html" />
+    <Content Include="App_Plugins\BlockViews\ContentNode\view\ContentNodeLayout.html" />
+    <Content Include="App_Plugins\BlockViews\ContentNode\view\ContentNodeText.html" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Plugins\MyCustomBlockViews\ContentNodeTitle.html" />
+    <Content Include="App_Plugins\BlockViews\ContentNode\view\ContentNodeTitle.html" />
   </ItemGroup>
 
   <ItemGroup>
@@ -26,6 +26,11 @@
 
   <ItemGroup>
     <Folder Include="Composers\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="App_Plugins\BlockViews\package.manifest" />
+    <None Include="App_Plugins\BlockViews\ContentNode\scripts\ContentNode.js" />
   </ItemGroup>
 
   <PropertyGroup>

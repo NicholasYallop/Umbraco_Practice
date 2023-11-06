@@ -1,0 +1,36 @@
+<div ng-controller="heroSlider" ng-click="block.edit()">
+    <umb-load-indicator ng-if="vm.loading != 0"></umb-load-indicator>
+    <div ng-if="vm.loading == 0 && vm.error == 0">
+        <div ng-if="vm.slides.length == 0">
+            Add banner to Hero Banner
+        </div>
+        <div ng-if="vm.slides.length != 0">
+            <section class="hero-slider mb-4">
+                <div id="carousel-{{ vm.identifier }}" class="carousel slide carousel-fade" data-ride="carousel">
+                    <div class="slide-pagination">
+                        <div class="container">
+                            <ol class="carousel-indicators slide-pagination--items">
+                                <li ng-repeat="slide in vm.slides" data-target="#carousel-{{ vm.identifier }}" data-slide-to="{{$index}}" ng-class="{ 'active' : $index == 0 }"></li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="carousel-inner hero-slider__items">
+                        <div ng-repeat="slide in vm.slides" ng-class="{ 'carousel-item' : true, 'active' : $index == 0 }">
+                            <img ng-src="{{slide.image}}" class="d-block w-100" alt="background slide">
+                            <div class="carousel-caption d-md-block">
+                                <div class="container">
+                                    <h2 ng-bind-html="slide.title"></h2>
+                                    <p class="text" ng-bind-html="slide.subtitle"></p>
+                                    <a class="btn btn--red" href="javascript:;" ng-show="slide.action != null" ng-if="slide.action">{{ slide.action.text }}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div ng-if="vm.error != 0">
+        <p class="text-warning">Error loading hero banners</p>
+    </div>
+</div>

@@ -45,6 +45,8 @@ namespace Umbraco_Flex.Extensions
 			})
 			.AddPolicyHandler(MemexRetryPolicy);
 
+			builder.Services.AddScoped<IMemexPortalService, MemexPortalService>();
+
 			return builder;
 		}
 	}

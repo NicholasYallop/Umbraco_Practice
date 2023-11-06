@@ -5,11 +5,11 @@
 	Layout = null;
 }
 @{
-	var host = Context.Request.Host.Host; 
-  var noIndex = host.Contains("wearewattle", StringComparison.OrdinalIgnoreCase) || host.Contains("localhost", StringComparison.OrdinalIgnoreCase) || host.Contains("dev", StringComparison.OrdinalIgnoreCase) || host.Contains("stage", StringComparison.OrdinalIgnoreCase) || host.Contains("uat", StringComparison.OrdinalIgnoreCase);
+	var host = Context.Request.Host.Host;
+	var noIndex = host.Contains("wearewattle", StringComparison.OrdinalIgnoreCase) || host.Contains("localhost", StringComparison.OrdinalIgnoreCase) || host.Contains("dev", StringComparison.OrdinalIgnoreCase) || host.Contains("stage", StringComparison.OrdinalIgnoreCase) || host.Contains("uat", StringComparison.OrdinalIgnoreCase);
 }
 
-
+<!DOCTYPE html>
 <head>
 	@if (noIndex)
 	{
@@ -38,8 +38,8 @@
 
 		<div class="dropdown">
 			<div class="@(Model.UrlSegment() == "all-content" ? "elementcontainer active" : "elementcontainer")">
-			<a class="element"
-				href=@(string.Format("{0}{1}", Model.Root().Url(), "all-content?searchString=a"))>All	Content</a>
+				<a class="element"
+					 href=@(string.Format("{0}{1}", Model.Root().Url(), "all-content?searchString=a"))>All	Content</a>
 				<img src="~/media/jerp2mxg/arrow.svg" class="navarrow" />
 			</div>
 			<div id="all_dropdown" class="dropdown-content">
@@ -58,11 +58,19 @@
 
 		<div class="dropdown">
 			<div class="@(Model.UrlSegment() == "news" ? "elementcontainer active" : "elementcontainer")">
-			<a class= "element"
-				 href=@(string.Format("{0}{1}", Model.Root().Url(), "news"))>News</a>
+				<a class="element"
+					 href=@(string.Format("{0}{1}", Model.Root().Url(), "news"))>News</a>
 				<img src="~/media/jerp2mxg/arrow.svg" class="navarrow" />
 			</div>
 			<div id="news_dropdown" class="dropdown-content">
+			</div>
+		</div>
+
+		<div class="dropdown">
+			<div class="elementcontainer">
+				<a class="element"
+					 href=@(string.Format("{0}{1}", Model.Root().Url(), "memex-portal"))>Memex Portal</a>
+				<img src="~/media/jerp2mxg/arrow.svg" class="navarrow" />
 			</div>
 		</div>
 

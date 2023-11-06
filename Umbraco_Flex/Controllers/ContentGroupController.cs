@@ -38,7 +38,7 @@ namespace Umbraco_Flex.Controllers
 		{
 			ContentGroupViewModel vm = new(CurrentPage!, _publishedValueFallback);
 
-			return View("/Views/ContentPage.cshtml", vm);
+			return View("/Views/NicksContentPage.cshtml", vm);
 		}
 	}
 

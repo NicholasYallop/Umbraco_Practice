@@ -7,7 +7,6 @@ function PopulateDropdowns(data) {
     let a = document.createElement("a");
     a.href = data[i].url;
     a.innerHTML = data[i].contentName;
-    console.log(a);
 
     all.appendChild(a);
     if (data[i].parent == "News") {
