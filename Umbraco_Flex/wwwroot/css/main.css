@@ -71,7 +71,7 @@ h3{
 }
 
 .elementcontainer{
-  float:left;
+  float: left;
   display: inline-block;
 }
 
@@ -269,4 +269,11 @@ h3{
 
 .contenttext{
   float: none;
+}
+
+/* CAROUSEL */
+.carouseltext{
+    color: red;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
 }

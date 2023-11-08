@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewEngines;
 using Umbraco.Cms.Core.Models.PublishedContent;
-using Umbraco.Cms.Core.Services;
 using Umbraco.Cms.Core.Web;
 using Umbraco.Cms.Web.Common.Controllers;
 using Umbraco_Flex.Services.Interface;
@@ -38,7 +37,7 @@ namespace Umbraco_Flex.Controllers
 		{
 			ContentGroupViewModel vm = new(CurrentPage!, _publishedValueFallback);
 
-			return View("/Views/NicksContentPage.cshtml", vm);
+			return View("/Views/ContentGroup.cshtml", vm);
 		}
 	}
 

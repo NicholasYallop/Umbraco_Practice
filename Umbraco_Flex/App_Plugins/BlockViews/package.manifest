@@ -1,5 +1,6 @@
 {
-	"javascript": [
-		"~/App_Plugins/BlockViews/ContentNode/scripts/ContentNode.js"
-	]	
+    "javascript": [
+        "~/App_Plugins/BlockViews/ContentNode/scripts/ContentNode.js",
+        "~/App_Plugins/BlockViews/Carousel/scripts/carousel.js"
+    ]	
 }
