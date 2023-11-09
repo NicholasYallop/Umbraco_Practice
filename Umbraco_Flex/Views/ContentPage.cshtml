@@ -1,0 +1,11 @@
+﻿@using Umbraco_Flex.ViewModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentPageViewModel>
+@{
+   Layout = "MasterTemplate.cshtml";
+}
+
+<script src="/scripts/main.js"></script>
+<link rel="stylesheet" src="/css/IOE.css"/>
+@* @await Html.PartialAsync("Header", View.Website) *@
+<partial name="~/Views/Partials/RenderGrid.cshtml" model="Model.ContentGrid" />
+@* @await Html.PartialAsync("Footer", View.Website) *@
