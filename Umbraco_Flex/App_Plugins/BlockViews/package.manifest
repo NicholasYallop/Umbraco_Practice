@@ -1,6 +1,9 @@
 {
     "javascript": [
-        "~/App_Plugins/BlockViews/ContentNode/scripts/ContentNode.js",
-        "~/App_Plugins/BlockViews/Carousel/scripts/carousel.js"
+        "~/App_Plugins/BlockViews/ContentNode/script/ContentNode.js",
+        "~/App_Plugins/BlockViews/ImageLinkWithExcerptHover/script/ImageLinkWithExcerptHover.js",
+        "~/App_Plugins/BlockViews/Carousel/script/carousel.js",
+        "~/App_Plugins/Services/ImageService/ImageService.js",
+        "~/App_Plugins/Services/StringService/StringService.js"
     ]	
 }

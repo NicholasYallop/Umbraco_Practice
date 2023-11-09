@@ -1,0 +1,61 @@
+@using Umbraco.Cms.Core.Models.Blocks;
+@inherits UmbracoViewPage<BlockGridItem<ImageLinkWithExcerptHover>>
+
+@* This component will allow for a repeating pattern of 3 - 2 so a gallery can be created *@
+@{
+    var index = 0;
+}
+@functions {
+    public string GetColumnClass(int index){
+        var start = index + 1;
+        var mod = start % 5;
+        if (mod == 0 || mod == 4)
+        {
+            return "col-md-6";
+        }
+        else
+        {
+            return "col-md-4";
+        }
+    }
+}
+
+@if (Model.Content.Images != null && Model.Content.Images.Any())
+{
+    <section class="image_hover mb-5">
+        @if (Model.Content?.Title != null)
+        {
+            <div class="container @(Model.Content.CentreTitle ? "text-center" : "")">
+                <h2 class="title_linea">@Model.Content.Title</h2>
+            </div>
+        }
+        <div class="container">
+            <div class="row g-1">
+                @foreach (var block in Model.Content!.Images.OfType<BlockListItem<ImageLinkWithExcerptHoverItem>>())
+                {
+                    <div class="col-12 @(Model.Content.TwoColumnLayout ? "col-md-6" : GetColumnClass(index))">
+                        <div class="image_hover__box">
+                            <a href="@(block.Content?.Action?.Url ?? "#")" target="@(block.Content?.Action?.Target ?? "")">
+                                @if (block.Content?.Image != null)
+                                {
+                                    <img
+                                    src="@Url.GetCropUrl(block.Content.Image,
+                                    height: 300, width: 300)">
+                                        <!--alt="[at]UmbracoContentHelperService.GetImageAltText(block.Content.Image.Id)"-->
+                                }
+                                <div>
+                                    @if (@block.Content?.Title != null)
+                                    {
+                                        <h3>@block.Content!.Title</h3>
+                                    }
+                                    <p>@Html.Raw(block.Content?.SubTitle)</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    index++;
+                }
+            </div>
+        </div>
+    </section>
+}

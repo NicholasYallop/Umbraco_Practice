@@ -1,0 +1,23 @@
+<div ng-controller="imageLinkWithExcerptHover" ng-click="block.edit()">
+    <section class="image_hover">
+        <div ng-class="{'text-center': (vm.centreTitle == '1' ? true : false)}">
+            <h2 class="title_linea" ng-bind-html="vm.title" ng-if="vm.title.length != 0"></h2>
+        </div>
+        <div class="container p-0">
+            <div class="row g-1">
+                <div ng-class="vm.getColumnCss(key)" ng-repeat="(key, block) in vm.blocks">
+                    <div class="image_hover__box">
+                        <a href="javascript:;">
+                            <img ng-src="{{ block.image }}" style="z-index:0;">
+                            <div>
+                                <h3 ng-bind-html="block.title"></h3>
+                                <p ng-bind-html="block.subtitle"></p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<br/>
