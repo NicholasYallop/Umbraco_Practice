@@ -17,15 +17,20 @@ h3{
 }
 
 /* NAV BAR */
+@media all and (min-width: 992px) {
+	.navbar .nav-item .dropdown-menu{ display: none; }
+	.navbar .nav-item:hover .nav-link{   }
+	.navbar .nav-item:hover .dropdown-menu{ display: block; }
+	.navbar .nav-item .dropdown-menu{ margin-top:0; }
+}	
+
 .topnav {
   background-color: #111211;
-  overflow: hidden;
-  top: 0;
-  width: 100%;
   grid-area: 1/1 / 2/-1;
   box-shadow: black 0px 0px 10px;
 }
 
+/*
 .element {
   float: left;
   color: #f2f2f2;
@@ -123,7 +128,7 @@ h3{
 .dropdown-content a:hover{
   background: rgba(137, 240, 154, 0.5);
 }
-
+*/
 /* LOGO */
 .logo {
   display: inline-block;

@@ -2,14 +2,14 @@
 @using Umbraco.Cms.Core.Models.Blocks;
 @inherits UmbracoViewPage<BlockGridItem<Carousel>>
 @{
+    //var index=0;
     var indicatorIndex = 0;
     var itemIndex = 0;
 }
 
 @if (Model.Content.ItemList != null)
 {
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel"
-    style="height:600px;grid-area:2/2/3/3;">
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
         @foreach (var slide in
         Model.Content.ItemList.OfType<BlockListItem<CarouselItem>>()){
@@ -53,10 +53,10 @@
 </div>
 }
 
-@* \/\/ FROM IOE \/\/
+@*\/\/ FROM IOE \/\/
 @if (Model.Content.ItemList != null)
 {
-    <section class="hero-slider mb-5" >
+    <section class="hero-slider mb-5">
         <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
             <div class="slide-pagination">
                 <div class="container">
@@ -78,10 +78,7 @@
                     <div class="carousel-item @(index == 0 ? "active" : "")">
                         @if (slide.Content.Image != null)
                         {
-                            <img
-                            src="@slide.Content.Image.GetCropUrl("desktop")"
-                            class="d-block w-100">
-                            // <!--alt="@UmbracoContentHelperService.GetImageAltText(slide.Content.Image.Id)"-->
+                            <img src="@slide.Content.Image.GetCropUrl("desktop")" class="d-block w-100">
                         }
                         <div class="carousel-caption d-md-block">
                             <div class="container">
