@@ -1,0 +1,23 @@
+<div ng-controller="membershipPromo" ng-click="block.edit()">
+    <section class="background-image">
+        <img src="/img/ob.png" alt="background">
+        <div class="container container--small">
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <img class="full" ng-src="{{image}}" alt="title background">
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="info_text">
+                        <h2>{{block.data.title}}</h2>
+                        <div class="text" ng-bind-html="block.data.text">
+                        </div>
+                        <a ng-repeat="action in block.data.actions"
+                            href="javascript:;" class="btn btn--red
+                            btn--blue-font">{{action.name}}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<br/>
