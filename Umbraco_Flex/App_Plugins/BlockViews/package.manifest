@@ -5,7 +5,9 @@
         "~/App_Plugins/BlockViews/Carousel/script/carousel.js",
         "~/App_Plugins/BlockViews/FullWidthTestimonials/script/FullWidthTestimonials.js",
         "~/App_Plugins/BlockViews/MembershipPromo/script/MembershipPromo.js",
+        "~/App_Plugins/BlockViews/FeaturedNews/script/FeaturedNews.js",
         "~/App_Plugins/Services/ImageService/ImageService.js",
-        "~/App_Plugins/Services/StringService/StringService.js"
+        "~/App_Plugins/Services/StringService/StringService.js",
+        "~/App_Plugins/Services/ContentService/ContentService.js"
     ]	
 }

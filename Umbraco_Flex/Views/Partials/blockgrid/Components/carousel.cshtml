@@ -2,11 +2,14 @@
 @using Umbraco.Cms.Core.Models.Blocks;
 @inherits UmbracoViewPage<BlockGridItem<Carousel>>
 @{
-    //var index=0;
+    var index=0;
+    /*
     var indicatorIndex = 0;
     var itemIndex = 0;
+    */
 }
 
+@*
 @if (Model.Content.ItemList != null)
 {
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -53,7 +56,7 @@
 </div>
 }
 
-@*\/\/ FROM IOE \/\/
+\/\/ FROM IOE \/\/ *@ 
 @if (Model.Content.ItemList != null)
 {
     <section class="hero-slider mb-5">
@@ -78,7 +81,8 @@
                     <div class="carousel-item @(index == 0 ? "active" : "")">
                         @if (slide.Content.Image != null)
                         {
-                            <img src="@slide.Content.Image.GetCropUrl("desktop")" class="d-block w-100">
+                            <img src="@Url.GetCropUrl(slide.Content.Image, 400,
+                            200)" class="d-block w-100">
                         }
                         <div class="carousel-caption d-md-block">
                             <div class="container">
@@ -99,4 +103,3 @@
         </div>
     </section>
 }
-*@

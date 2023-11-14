@@ -25,7 +25,9 @@ var index = 0;
                                 {
                                 <div class="testimonial__image-container">
                                     <img 
-                                    src="@Url.GetCropUrl(testimonial.Content.Image, width: 200, height: 200)" 
+                                    src="@Url.GetCropUrl(testimonial.Content.Image,
+                                    height: 200, width: 200,
+                                    imageCropMode: ImageCropMode.Min)" 
                                     class="img-fluid testimonial__quote-image"/>
                                     <!--
                                     alt="[at]UmbracoContentHelperService.GetImageAltText(testimonial.Content.Image.Id)" 

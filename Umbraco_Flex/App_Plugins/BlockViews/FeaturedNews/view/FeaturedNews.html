@@ -1,0 +1,58 @@
+<div ng-controller="featuredNews" ng-click="block.edit()">
+    
+    <section class="grups_category">
+        <div class="container p-0">
+            <h2 class="title_linea" ng-bind-html="vm.title" ng-if="vm.title.length != 0"></h2>
+            <div class="row grups_category__two">
+                <div ng-class="vm.getCssClass(vm.topNewsItems.length)" ng-if="vm.topNewsItems.length != 0">
+                    <a href="javascript:;">
+                        <div class="row">
+                            <div class="col-12 col-lg-6 image">
+                                <img ng-src="{{ vm.topNewsItems[0].thumbnail }}" alt="background">
+                            </div>
+                            <div class="col-12 col-lg-6 info">
+                                <h4>{{vm.topNewsItems[0].date | date: 'EEE d MMM yyyy' }}</h4>
+                                <h3> 
+                                    <span ng-repeat="(key, value) in vm.topNewsItems[0].category">{{value}}<span ng-if="!$last">, </span></span>
+                                </h3>
+                                <h2>{{vm.topNewsItems[0].headline}}</h2>
+                                <div class="text" ng-bind-html="vm.topNewsItems[0].abstract"></div>
+                            </div>
+                        </div>
+
+                    </a>
+                </div>
+                <div class="col-12 col-lg-3 post_top" ng-if="vm.topNewsItems.length > 1">
+                    <a href="javascript:;">
+                        <div class="image">
+                            <img ng-src="{{ vm.topNewsItems[1].thumbnail }}" alt="background">
+                        </div>
+                        <div class="info">
+                            <h4>{{vm.topNewsItems[1].date | date: 'EEE d MMM yyyy'}}</h4>
+                            <h3>
+                                <span ng-repeat="(key, value) in vm.topNewsItems[1].category">{{value}}<span ng-if="!$last">, </span></span>
+                            </h3>
+                            <h2>{{vm.topNewsItems[1].headline}}</h2>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="row grups_category__three" ng-if="vm.bottomNewsItems.length != 0" ng-repeat="news in vm.bottomNewsItems">
+                <div class="col-12 col-lg-4 post_flex post_flex--small">
+                    <a href="javascript:;">
+                        <div class="image">
+                            <img ng-src="{{ news.thumbnail }}" alt="background">
+                        </div>
+                        <div class="info">
+                            <h4>{{news.date | date: 'EEE d MMM yyyy'}}</h4>
+                            <h3>
+                                <span ng-repeat="(key, value) in news.category">{{value}}<span ng-if="!$last">, </span></span>
+                            </h3>
+                            <h2>{{news.headline}}</h2>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
