@@ -1,0 +1,29 @@
+<div ng-controller="fullWidthTestimonials" ng-click="block.edit()">
+    <section class="testimonal">
+        <!--img src="/img/bc.png" alt="background image"
+            class="testimonal__bg-image img-fluid"-->
+        <div class="container-large testimonal__inner-container ">
+            <img ng-src="{{ vm.headerImage }}" alt="image title" class="testimonal__image img-fluid">
+            <div class="testimonal__slides">
+                <div class="container">
+                    <h3 class="testimonal__heading" ng-bind-html="vm.headerTitle"></h3>
+                    <div class="testimonial__carsousel-container">
+                        <div class="js-testimonial-slider">
+                            <div ng-repeat="block in vm.blocks">
+                                <div class="testimonial__quote">
+                                    <div class="testimonial__image-container" ng-if="block.image">
+                                        <img ng-src="{{block.image}}" alt="company image" class="img-fluid testimonial__quote-image">
+                                    </div>
+                                    <div>
+                                        <p>{{block.text}}</p>
+                                        <h4 class="mb-0">{{block.author}}</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

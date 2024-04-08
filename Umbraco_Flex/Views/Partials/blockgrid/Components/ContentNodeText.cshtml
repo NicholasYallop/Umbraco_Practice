@@ -1,0 +1,6 @@
+﻿@using Umbraco.Cms.Core.Strings;
+@using Umbraco.Extensions
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
+
+<p class="contenttext">@((Model.Content as ContentNodeText)?.BodyText)</p>
+

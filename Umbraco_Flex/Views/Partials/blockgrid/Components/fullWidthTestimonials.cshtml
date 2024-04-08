@@ -1,0 +1,51 @@
+@using Umbraco.Cms.Core.Models;
+@using Umbraco.Cms.Core.Models.Blocks;
+@inherits UmbracoViewPage<BlockGridItem<FullWidthTestimonials>>
+@{
+var index = 0;
+}
+
+@if (Model.Content?.Items != null && Model.Content.Items.Any())
+{
+<section class="testimonal mb-5 mb-lg-0">
+    <!--img src="/img/bc.png" alt="background image" class="testimonal__bg-image
+        img-fluid"-->
+    <div class="container-large testimonal__inner-container ">
+        <img src="@(Model.Content?.HeaderImage?.Url() ?? "/img/t.jpg")" alt="testimonal background image" class="testimonal__image img-fluid">
+        <div class="testimonal__slides">
+            <div class="container">
+                <h3 class="testimonal__heading">@(!string.IsNullOrWhiteSpace(Model.Content?.HeaderTitle) ? Model.Content!.HeaderTitle : "Testimonials")</h3>
+                <div class="testimonial__carsousel-container bg-white">
+                    <div class="js-testimonial-slider">
+                        @foreach (var testimonial in Model.Content!.Items.OfType<BlockListItem<Testimonial>>())
+                        {
+                        <div class="@(index == 0 ? "active" : "")">
+                            <div class="testimonial__quote">
+                                @if (testimonial.Content?.Image != null)
+                                {
+                                <div class="testimonial__image-container">
+                                    <img 
+                                    src="@Url.GetCropUrl(testimonial.Content.Image,
+                                    height: 200, width: 200,
+                                    imageCropMode: ImageCropMode.Min)" 
+                                    class="img-fluid testimonial__quote-image"/>
+                                    <!--
+                                    alt="[at]UmbracoContentHelperService.GetImageAltText(testimonial.Content.Image.Id)" 
+                                    -->
+                                </div>
+                                }
+                                <div>
+                                    <p>@testimonial.Content?.Text</p>
+                                    <h4 class="mb-0">@testimonial.Content?.Author</h4>
+                                </div>
+                            </div>
+                        </div>
+                        index++;
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+}

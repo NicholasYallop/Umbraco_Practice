@@ -1,0 +1,18 @@
+﻿@using Umbraco.Cms.Core.Models;
+@using Umbraco_Flex.ViewModels;
+@model ContentNodeViewModel
+@{
+  var contentnodelayout = Model.ContentGrid?.FirstOrDefault(element => element.Content is ContentNodeLayout);
+  var picturearea = contentnodelayout?.Areas.FirstOrDefault(area => area.Alias == "picture");
+  var contentnodepicture = picturearea?.FirstOrDefault(item => item.Content is ContentNodePicture)?.Content as ContentNodePicture;
+}
+
+<div class="resultelement" onclick="location.href = '@Model.Url()';">
+  <div>
+    <h5>@Model.Parent?.Name</h5>
+  </div>
+  <img src="@(contentnodepicture?.Image?.MediaUrl())"/>
+  <div>
+    <h5>@Model.ContentName</h5>
+  </div>
+</div>

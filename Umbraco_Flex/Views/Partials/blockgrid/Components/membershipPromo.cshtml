@@ -1,0 +1,29 @@
+@using Umbraco.Cms.Core.Models;
+@using Umbraco.Cms.Core.Models.Blocks;
+@inherits UmbracoViewPage<BlockGridItem<MembershipPromo>>
+
+<section class="background-image mb-5">
+    <div class="container container--small">
+        <div class="row">
+            <div class="col-12 col-md-6">
+                @if (Model.Content.Image != null)
+                {
+                    <img class="full" src="@Model.Content.Image.Url()">
+                }
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="info_text">
+                    <h2>@Model.Content.Title</h2>
+                    <div class="text">
+                        @Html.Raw(Model.Content.Text)
+                    </div>
+                    @foreach (var action in Model.Content.Actions)
+                    {
+                        <a href="@action.Url" class="btn btn--red
+                            btn--blue-font">@action.Name</a>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,18 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco_Flex.ViewModels;
+@model AllContentViewModel
+@{
+	Layout = "MasterTemplate.cshtml";
+}
+
+<head>
+	<script src='/Scripts/AllContentNodeSearch.js'></script>
+	<script>
+		window.onload = UpdateList;
+	</script>
+</head>
+
+<input class="filterbox" id='SearchText' placeholder="Search text" onchange="UpdateList()" />
+
+<div id="searchResults">
+</div>

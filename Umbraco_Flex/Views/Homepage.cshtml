@@ -1,0 +1,12 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.Homepage>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+	Layout = "MasterTemplate.cshtml";
+}
+
+<div id="homepagemain">
+	<div class="heroimagecontainer">
+		<img src="@(Model.Hero?.MediaUrl())"/>
+	</div>
+</div>

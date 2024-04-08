@@ -1,0 +1,284 @@
+/* BODY GRID */
+.bodygrid{
+  display: grid;
+  grid: min-content auto 40px / 120px auto 200px;
+  height: 100%;
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  background: #494f4a;
+  font-family: 'Roboto';
+  font-kerning: none;
+  color: #f2f2f2;
+}
+
+h3{
+  font-weight: normal;
+}
+
+/* NAV BAR */
+@media all and (min-width: 992px) {
+	.navbar .nav-item .dropdown-menu{ display: none; }
+	.navbar .nav-item:hover .nav-link{   }
+	.navbar .nav-item:hover .dropdown-menu{ display: block; }
+	.navbar .nav-item .dropdown-menu{ margin-top:0; }
+}	
+
+.topnav {
+  background-color: #111211;
+  grid-area: 1/1 / 2/-1;
+  box-shadow: black 0px 0px 10px;
+}
+
+/*
+.element {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 24px 10px 24px 18px;
+  text-decoration: none;
+  font-size: 17px;
+  transition: 0.25s;
+  z-index: 1;
+}
+
+#homeelement{
+  padding-right: 25px;
+}
+
+.active{
+  background-color: #89f09a;
+}
+
+.active .element{
+  background-color: #89f09a;
+  color: #111211;
+}
+
+.elementcontainer:hover{
+  background-color: rgba(137, 240, 154, 0.5);
+}
+
+.active:hover .element{
+  transition: 0s;
+  background-color: rgba(0,0,0,0);
+}
+
+.elementcontainer:hover a {
+  color: black;
+}
+
+.dropdown{
+  float: left;
+  overflow: hidden;
+  display: inline-block;
+  z-index: 1;
+}
+
+.elementcontainer{
+  float: left;
+  display: inline-block;
+}
+
+.elementcontainer .navarrow{
+  float: left;
+  height: 100%;
+  width: 25px;
+  margin: 23px 0 0 0;
+  transition: 0.25s;
+}
+
+.dropdown .dropdown-content{
+  position: absolute;
+  z-index: 1;
+  display: none;
+  top: 68.28px;
+  background: #111211;
+  width: 200px;
+  border: 1px solid #89f09a;
+}
+
+.dropdown-content a{
+  color: #89f09a;
+  text-align: center;
+  width: 100%;
+  float: left;
+  text-decoration: none;
+  padding: 10px 0px;
+  border: 1px solid #89f09a;
+}
+
+.active .navarrow{
+  filter: invert(100%);
+}
+
+.dropdown:hover .dropdown-content{
+  display: block;
+}
+
+.dropdown:hover .navarrow{
+  transform: rotate(90deg);
+  filter: invert(100%);
+}
+
+.dropdown:hover .active .navarrow{
+  filter: invert(100%);
+}
+
+.dropdown-content a:hover{
+  background: rgba(137, 240, 154, 0.5);
+}
+*/
+/* LOGO */
+.logo {
+  display: inline-block;
+  position: absolute;
+  text-decoration: none;
+  text-align: center;
+  font-size: 17px;
+  margin: 0px;
+  color: #89f09a;
+  line-height: 0;
+  top: 0;
+}
+
+.mainlogo {
+}
+
+.sublogo {
+}
+
+/* MAIN DIV */
+#maindiv{
+  grid-area: 2/2 / 3/3;
+}
+
+/* FOOTER */
+.footer{
+  grid-area: -2/1 / -1/-1;
+  background: #111211;
+  width: 100%;
+  text-align: center;
+}
+
+.footer > p{
+  color: #f2f2f2;
+}
+
+/* HOMEPAGE */
+#homepagemain{
+  display: grid;
+  grid: max-content auto auto /  max-content max-content auto;
+  height: 100%;
+  margin-top: 35px;
+}
+
+#homepagemain h1, 
+#homepagemain h2{
+  color: #f2f2f2;
+  letter-spacing: 1px;
+}
+
+#homepagemain h1{
+  font-size: 64px;
+  grid-area: 1/1 / 2/2; 
+  padding: 0px;
+  margin: 0px;
+  justify-self: left;
+  align-self: end;
+}
+
+#homepagemain h2{
+  font-size: 16px;
+  grid-area: 1/2 / 2/3; 
+  padding: 0px;
+  margin: 10px 60px;
+  justify-self: left;
+  align-self: start;
+}
+
+#homepagemain .heroimagecontainer{
+  border-radius: 50px 50px;
+  grid-area: 2/1 / 3/4;
+  justify-self: center;
+  align-self: center;
+  margin: 40px 0 0 0;
+}
+
+#homepagemain .heroimagecontainer img{
+  height: 562px;
+  border-radius: 50px 50px;
+  width: 1000px;
+  opacity: 0.8;
+}
+
+/* FILTER BOX */
+.filterbox {
+  margin: 10px 0 0 0;
+}
+
+/* RESULTS LIST */
+.resultslist{
+  align-content: center;
+  display: inline-block;
+  float: left;
+  width: 100%;
+}
+
+.resultslist ul{
+  float: left;
+  position: relative;
+  left: 50%;
+}
+
+.resultslist .resultelement{
+  float: left;
+  position: relative;
+  left: -50%;
+  padding: 0px 10px;
+  width: 150px;
+}
+
+.resultslist .resultelement img{
+  width: 150px;
+  height: 150px;
+}
+
+.resultslist .resultelement div{
+  text-align: center;
+}
+
+.resultslist .resultelement div h5{
+  margin: 5px 10px 15px 10px;
+}
+
+/* CONTENT NODE */
+.contentcontainer{
+  padding: 15px 0 5px 0;
+  float: left;
+}
+
+.contentimgcontainer{
+  margin: 0 10px 0 0;
+  float: left;
+}
+
+.contentimg {
+  width: 200px;
+  height: 200px;
+}
+
+.contenttitle{
+  float: none;
+}
+
+.contenttext{
+  float: none;
+}
+
+/* CAROUSEL */
+.carouseltext{
+    color: red;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+}

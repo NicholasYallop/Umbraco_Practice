@@ -1,0 +1,16 @@
+﻿@using Umbraco_Flex.ViewModels;
+@{
+}
+
+@model IEnumerable<ContentNode>
+
+<div class="resultslist" id="searchResults">
+	<ul>
+		@foreach (var content in Model)
+		{
+			<partial name="ContentSearchResult" model="new ContentNodeViewModel(content, null)" />
+		}
+	</ul>
+</div>
+
+	

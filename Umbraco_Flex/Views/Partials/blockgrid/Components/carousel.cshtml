@@ -1,0 +1,105 @@
+@using Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Core.Models.Blocks;
+@inherits UmbracoViewPage<BlockGridItem<Carousel>>
+@{
+    var index=0;
+    /*
+    var indicatorIndex = 0;
+    var itemIndex = 0;
+    */
+}
+
+@*
+@if (Model.Content.ItemList != null)
+{
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        @foreach (var slide in
+        Model.Content.ItemList.OfType<BlockListItem<CarouselItem>>()){
+        <li data-target="#carouselExampleIndicators"
+            data-slide-to="@indicatorIndex"
+            class="@(indicatorIndex==0 ? "active" : "")"></li>
+        indicatorIndex++;
+        }
+    </ol>
+    <div class="carousel-inner h-100">
+        @foreach (var slide in 
+        Model.Content.ItemList.OfType<BlockListItem<CarouselItem>>()){
+        <div class="@("carousel-item" + (itemIndex==0 ? " active" : ""))">
+            <img class="h-100 d-inline-block"
+                 src="@Url.GetCropUrl(slide.Content.Image, height: 600, width:
+                      944)">
+            <div class="carousel-caption">
+                <div>
+                    <h2 class="carouseltext">@slide.Content.Title</h2>
+                    <div class="carouseltext">
+                        <p>@slide.Content.Subtitle</p>
+                    </div>
+                    @if (slide.Content.Action?.Url != null)
+                    {
+                    <a class="carouseltext" href="@slide.Content.Action.Url">@slide.Content.Action.Name</a>
+                    }
+                </div>
+</div>
+        </div>   
+        itemIndex++;
+        }
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+}
+
+\/\/ FROM IOE \/\/ *@ 
+@if (Model.Content.ItemList != null)
+{
+    <section class="hero-slider mb-5">
+        <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+            <div class="slide-pagination">
+                <div class="container">
+                    <ol class="carousel-indicators slide-pagination--items">
+                        @foreach (var slide in Model.Content.ItemList.OfType<BlockListItem<CarouselItem>>())
+                        {
+                            <li data-target="#carouselExampleFade" data-slide-to="@index" class="@(index == 0 ? "active" : "")"></li>
+                            index++;
+                        }
+                    </ol>
+                </div>
+            </div>
+            <div class="carousel-inner hero-slider__items">
+                @{
+                    index = 0;
+                }
+                @foreach (var slide in Model.Content.ItemList.OfType<BlockListItem<CarouselItem>>())
+                {
+                    <div class="carousel-item @(index == 0 ? "active" : "")">
+                        @if (slide.Content.Image != null)
+                        {
+                            <img src="@Url.GetCropUrl(slide.Content.Image, 400,
+                            200)" class="d-block w-100">
+                        }
+                        <div class="carousel-caption d-md-block">
+                            <div class="container">
+                                <h2>@slide.Content.Title</h2>
+                                <div class="text">
+                                    <p>@slide.Content.Subtitle</p>
+                                </div>
+                                @if (slide.Content.Action?.Url != null)
+                                {
+                                    <a class="btn btn--red" href="@slide.Content.Action.Url">@slide.Content.Action.Name</a>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    index++;
+                }
+            </div>
+        </div>
+    </section>
+}

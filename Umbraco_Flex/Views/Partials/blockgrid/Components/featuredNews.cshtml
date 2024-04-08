@@ -1,0 +1,95 @@
+@inherits UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem<FeaturedNews>>
+
+@if (Model.Content.NewsItems != null && Model.Content.NewsItems.Any())
+{
+    var topNewsItems = Model.Content.NewsItems.Take(2).ToList();
+    var top = topNewsItems.ElementAtOrDefault(0) as NewsPage;
+    var bottom = topNewsItems.ElementAtOrDefault(1) as NewsPage;
+    var bottomNewsItems = Model.Content.NewsItems.Skip(2).ToList();
+
+    <section class="grups_category">
+        <!--img src="/img/ob.png" alt="title"-->
+        <div class="container">
+            @if (Model.Content?.Title != null)
+            {
+                <h2 class="title_linea">@Model.Content.Title</h2>
+            }
+            <div class="row grups_category__two">
+                @if (top != null) 
+                {
+                    <div class="col-12 @(bottom != null ? "col-lg-9" : "") post_flex">
+                        <a href="@top.Url()">
+                            <div class="row">
+                                <div class="col-12 col-lg-6 image">
+                                    @if (top.Thumbnail != null)
+                                    {
+                                        <img src="@top.Thumbnail.Url()">
+                                    }
+                                </div>
+                                <div class="col-12 col-lg-6 info">
+                                    <h4>@top.Announced.ToString("ddd d MMM yyyy")</h4>
+                                    @if (top.Category != null)
+                                    {
+                                        <h3>@string.Join(", ", top.Category)</h3>
+                                    }
+                                    <h3 class="headline"><strong>@top.Headline</strong></h3>
+                                    <div class="text">
+                                        <p>@top.Abstract</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                }
+                @if (bottom != null) 
+                {
+                    <div class="col-12 col-lg-3 post_top">
+                        <a href="@bottom.Url()">
+                            <div class="image">
+                                @if (bottom.Thumbnail != null)
+                                {
+                                    <img src="@bottom.Thumbnail.Url()">
+                                }
+                            </div>
+                            <div class="info">
+                                <h4>@bottom.Announced.ToString("ddd d MMM yyyy")</h4>
+                                @if (bottom.Category != null)
+                                {
+                                    <h3>@string.Join(", ", bottom.Category)</h3>
+                                }
+                                <h3 class="headline"><strong>@bottom.Headline</strong></h3>
+                            </div>
+                        </a>
+                    </div>
+                }
+            </div>
+
+            @if (bottomNewsItems.Any())
+            {
+                <div class="row grups_category__three">
+                    @foreach (var news in bottomNewsItems.OfType<NewsPage>())
+                    {
+                        <div class="col-12 col-lg-4 post_flex post_flex--small">
+                            <a href="@news.Url()">
+                                <div class="image">
+                                    @if (news.Thumbnail != null)
+                                    {
+                                        <img src="@news.Thumbnail.Url()">
+                                    }
+                                </div>
+                                <div class="info">
+                                    <h4>@news.Announced.ToString("ddd d MMM yyyy")</h4>
+                                    @if (news.Category != null)
+                                    {
+                                        <h3>@string.Join(", ", news.Category)</h3>
+                                    }
+                                    <h2>@news.Headline</h2>
+                                </div>
+                            </a>
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+    </section>
+}

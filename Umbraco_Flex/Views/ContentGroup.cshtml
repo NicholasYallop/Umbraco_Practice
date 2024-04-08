@@ -1,0 +1,19 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco_Flex.ViewModels.ContentGroupViewModel>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+	Layout = "MasterTemplate.cshtml";
+}
+
+<head>
+	<script src='/Scripts/ChildContentNodeSearch.js'></script>
+	<script>
+		window.onload = UpdateList;
+	</script>
+</head>
+
+<input type="hidden" id="GroupId" value="@Model.GroupId"/>
+<input class="filterbox" id="SearchText" placeholder="Search text" onchange="UpdateList()"/>
+
+<div id="searchResults">
+</div>

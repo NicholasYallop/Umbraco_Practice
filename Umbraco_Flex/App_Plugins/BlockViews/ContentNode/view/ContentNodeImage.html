@@ -1,0 +1,14 @@
+﻿<div ng-controller="contentNode" ng-click="block.edit()">
+  <umb-loading-indicator ng-if="vm.loading!=1"></umb-loading-indicator>
+  <div ng-if="vm.loading==0 && vm.error==0">
+    <div>
+      <img ng-src="vm.imageUrl" />
+    </div>
+    <div>
+      <h1 ng-bind-html="vm.message">test</h1>
+    </div>
+  </div>
+  <div ng-if="vm.error!=0">
+    <p>Error loading image.</p>
+  </div>
+</div>
